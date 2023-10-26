@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+$dark: #2b2d42;
+$gray: #8d99ae;
+$white: #edf2f4;
+$pink: #ef233c;
+$red: #d90429;
+
+body {
+  font-family: "Inter";
+  background-color: $white;
+}
