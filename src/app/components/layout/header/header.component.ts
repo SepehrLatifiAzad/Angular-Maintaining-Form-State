@@ -9,32 +9,7 @@ import { RouterService } from 'src/app/service/router-service/router.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  routes: IRouter[] = [
-    {
-      label: 'Home',
-      path: '/home',
-      icon: 'home',
-      isActive: false,
-    },
-    {
-      label: 'About',
-      path: '/about',
-      icon: 'info',
-      isActive: false,
-    },
-    {
-      label: 'Contact',
-      path: '/contact',
-      icon: 'contacts',
-      isActive: false,
-    },
-    {
-      label: 'Dashboard',
-      path: '/dashboard',
-      icon: 'dashboard',
-      isActive: false,
-    },
-  ];
+  routes: IRouter[] = this.routerService.routes;
   routeHistory$: Observable<IRouter[]> = this.routerService.getHistory();
   constructor(private routerService: RouterService) {}
 

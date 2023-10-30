@@ -7,6 +7,32 @@ import { IRouter } from 'src/app/interface/router.interface';
   providedIn: 'root',
 })
 export class RouterService {
+  routes: IRouter[] = [
+    {
+      label: 'Home',
+      path: '/home',
+      icon: 'home',
+      isActive: false,
+    },
+    {
+      label: 'About',
+      path: '/about',
+      icon: 'info',
+      isActive: false,
+    },
+    {
+      label: 'Contact',
+      path: '/contact',
+      icon: 'contacts',
+      isActive: false,
+    },
+    {
+      label: 'Dashboard',
+      path: '/dashboard',
+      icon: 'dashboard',
+      isActive: false,
+    },
+  ];
   private routerHistory: IRouter[] = [];
   private historySubject = new BehaviorSubject<IRouter[]>(this.routerHistory);
 
