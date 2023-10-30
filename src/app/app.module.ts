@@ -12,15 +12,25 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent, HomeComponent, ContactComponent, AboutComponent, DashboardComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    HomeComponent,
+    ContactComponent,
+    AboutComponent,
+    DashboardComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatChipsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
