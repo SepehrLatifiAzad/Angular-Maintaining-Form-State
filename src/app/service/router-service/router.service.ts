@@ -17,13 +17,15 @@ export class RouterService {
   constructor(private router: Router) {}
 
   navigateTo(route: IRouter): void {
-    console.log(route);
     let index = this.routerHistory.findIndex(
       (item) => item.label === route.label
     );
-    console.log(index);
+    this.routerHistory.forEach((item) => (item.isActive = false));
     if (index == -1) {
+      route.isActive = true;
       this.routerHistory.push(route);
+    } else {
+      this.routerHistory[index].isActive = true;
     }
   }
 
