@@ -7,6 +7,7 @@ import { IRouter } from 'src/app/interface/router.interface';
   providedIn: 'root',
 })
 export class RouterService {
+  // main routes for the application
   routes: IRouter[] = [
     {
       label: 'Home',
@@ -36,12 +37,23 @@ export class RouterService {
   private routerHistory: IRouter[] = [];
   private historySubject = new BehaviorSubject<IRouter[]>(this.routerHistory);
 
+  /**
+   * @description get the history of the router as an observable
+   * @returns Observable<IRouter[]>
+   * @memberof RouterService
+   */
   getHistory(): Observable<IRouter[]> {
     return this.historySubject.asObservable();
   }
 
   constructor(private router: Router) {}
 
+  /**
+   * @description navigate to a route and add it to the history
+   * @param route route to navigate to
+   * @returns void
+   * @memberof RouterService
+   */
   navigateTo(route: IRouter): void {
     let currentRoute = this.routes.find(
       (item) => item.path === this.router.url
@@ -55,6 +67,12 @@ export class RouterService {
     }
   }
 
+  /**
+   * @description delete a route from the history
+   * @param route route to delete from the history
+   * @returns void
+   * @memberof RouterService
+   */
   deleteFromHistory(route: IRouter): void {
     let index = this.routerHistory.findIndex(
       (item) => item.label === route.label

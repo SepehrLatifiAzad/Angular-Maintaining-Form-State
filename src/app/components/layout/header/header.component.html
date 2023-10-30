@@ -1,4 +1,5 @@
 <div class="header-container">
+  <!--Main Navigation Bar-->
   <div class="first-header header">
     <a
       *ngFor="let route of routes"
@@ -9,6 +10,7 @@
       >{{ route.label }}</a
     >
   </div>
+  <!--History Bar-->
   <div
     class="second-header header"
     *ngIf="routeHistory$ | async as routeHistory"
