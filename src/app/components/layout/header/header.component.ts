@@ -41,4 +41,7 @@ export class HeaderComponent {
   navigateTo(route: IRouter): void {
     this.routerService.navigateTo(route);
   }
+  removeRouteHistory(route: IRouter): void {
+    this.routerService.deleteFromHistory(route);
+  }
 }

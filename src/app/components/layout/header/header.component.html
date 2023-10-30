@@ -13,11 +13,19 @@
     class="second-header header"
     *ngIf="routeHistory$ | async as routeHistory"
   >
-    <mat-chip-option
-      color="accent"
-      *ngFor="let route of routeHistory"
-      [routerLink]="route.path"
-      >{{ route.label }}
-    </mat-chip-option>
+    <mat-chip-listbox aria-label="route selection">
+      <mat-chip-option
+        *ngFor="let route of routeHistory"
+        (removed)="removeRouteHistory(route)"
+        color="accent"
+        [routerLink]="route.path"
+        matChipAvatar="none"
+      >
+        {{ route.label }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-option>
+    </mat-chip-listbox>
   </div>
 </div>
