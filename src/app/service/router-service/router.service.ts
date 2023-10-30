@@ -10,7 +10,7 @@ export class RouterService {
   routes: IRouter[] = [
     {
       label: 'Home',
-      path: '/home',
+      path: '/',
       icon: 'home',
       isActive: false,
     },
@@ -43,15 +43,15 @@ export class RouterService {
   constructor(private router: Router) {}
 
   navigateTo(route: IRouter): void {
-    let index = this.routerHistory.findIndex(
-      (item) => item.label === route.label
+    let currentRoute = this.routes.find(
+      (item) => item.path === this.router.url
     );
-    this.routerHistory.forEach((item) => (item.isActive = false));
-    if (index == -1) {
-      route.isActive = true;
-      this.routerHistory.push(route);
-    } else {
-      this.routerHistory[index].isActive = true;
+    let index = this.routerHistory.findIndex(
+      (item) => item.path === this.router.url
+    );
+
+    if (index === -1) {
+      this.routerHistory.push(currentRoute!);
     }
   }
 
