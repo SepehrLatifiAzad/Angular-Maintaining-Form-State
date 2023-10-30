@@ -17,11 +17,12 @@ export class RouterService {
   constructor(private router: Router) {}
 
   navigateTo(route: IRouter): void {
-    this.router.navigate([route.path]);
+    console.log(route);
     let index = this.routerHistory.findIndex(
       (item) => item.label === route.label
     );
-    if (index !== -1) {
+    console.log(index);
+    if (index == -1) {
       this.routerHistory.push(route);
     }
   }
