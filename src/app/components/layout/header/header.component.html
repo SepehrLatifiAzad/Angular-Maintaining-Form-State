@@ -1,10 +1,23 @@
 <div class="header-container">
   <div class="first-header header">
-    <a href="">Home</a>
-    <a href="">About</a>
-    <a href="">Dashboard</a>
+    <a
+      *ngFor="let route of routes"
+      [routerLink]="route.path"
+      routerLinkActive="activeRoute"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="navigateTo(route)"
+      >{{ route.label }}</a
+    >
   </div>
-  <div class="second-header header">
-    <a href=""></a>
+  <div
+    class="second-header header"
+    *ngIf="routeHistory$ | async as routeHistory"
+  >
+    <mat-chip-option
+      color="accent"
+      *ngFor="let route of routeHistory"
+      [routerLink]="route.path"
+      >{{ route.label }}
+    </mat-chip-option>
   </div>
 </div>
