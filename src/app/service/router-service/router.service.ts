@@ -12,25 +12,21 @@ export class RouterService {
     {
       label: 'Home',
       path: '/',
-      icon: 'home',
       isActive: false,
     },
     {
       label: 'Form 1',
       path: '/form1',
-      icon: 'info',
       isActive: false,
     },
     {
       label: 'Form 2',
       path: '/form2',
-      icon: 'contacts',
       isActive: false,
     },
     {
       label: 'Form 3',
       path: '/form3',
-      icon: 'dashboard',
       isActive: false,
     },
   ];
@@ -54,7 +50,7 @@ export class RouterService {
    * @returns void
    * @memberof RouterService
    */
-  navigateTo(route: IRouter): void {
+  navigateTo(route: IRouter, data?: Object): void {
     let currentRoute = this.routes.find(
       (item) => item.path === this.router.url
     );
@@ -64,6 +60,8 @@ export class RouterService {
 
     if (index === -1) {
       this.routerHistory.push(currentRoute!);
+    } else {
+      this.routerHistory[index].form = data;
     }
   }
 
@@ -80,5 +78,24 @@ export class RouterService {
     if (index !== -1) {
       this.routerHistory.splice(index, 1);
     }
+  }
+
+  setFormData(formData: Object): void {
+    let currentRoute = this.routes.findIndex(
+      (item) => item.path === this.router.url
+    );
+    if (currentRoute !== -1) {
+      this.routes[currentRoute].form = formData;
+    }
+  }
+
+  getFormData(): Object | undefined {
+    let currentRoute = this.routes.find(
+      (item) => item.path === this.router.url
+    );
+    if (currentRoute) {
+      return currentRoute.form;
+    }
+    return {};
   }
 }

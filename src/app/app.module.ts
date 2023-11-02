@@ -14,6 +14,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Form1Component } from './components/form1/form1.component';
 import { Form2Component } from './components/form2/form2.component';
 import { Form3Component } from './components/form3/form3.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,10 @@ import { Form3Component } from './components/form3/form3.component';
     MatChipsModule,
     MatIconModule,
     NgbModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
