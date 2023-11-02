@@ -1,34 +1,35 @@
 <div class="header-container">
   <!--Main Navigation Bar-->
-  <div class="first-header header">
-    <a
-      *ngFor="let route of routes"
-      [routerLink]="route.path"
-      routerLinkActive="activeRoute"
-      [routerLinkActiveOptions]="{ exact: true }"
-      (click)="navigateTo(route)"
-      >{{ route.label }}</a
-    >
+  <div class="first-header">
+    <div class="container header">
+      <a
+        *ngFor="let route of routes"
+        [routerLink]="route.path"
+        routerLinkActive="activeRoute"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="navigateTo(route)"
+        >{{ route.label }}</a
+      >
+    </div>
   </div>
   <!--History Bar-->
-  <div
-    class="second-header header"
-    *ngIf="routeHistory$ | async as routeHistory"
-  >
-    <mat-chip-listbox aria-label="route selection">
-      <mat-chip-option
-        *ngFor="let route of routeHistory"
-        (removed)="removeRouteHistory(route)"
-        color="accent"
-        [routerLink]="route.path"
-        matChipAvatar="none"
-        [selected]="route.isActive"
-      >
-        {{ route.label }}
-        <button matChipRemove>
-          <mat-icon>cancel</mat-icon>
-        </button>
-      </mat-chip-option>
-    </mat-chip-listbox>
+  <div class="second-header" *ngIf="routeHistory$ | async as routeHistory">
+    <div class="container header">
+      <mat-chip-listbox aria-label="route selection">
+        <mat-chip-option
+          *ngFor="let route of routeHistory"
+          (removed)="removeRouteHistory(route)"
+          color="accent"
+          [routerLink]="route.path"
+          matChipAvatar="none"
+          [selected]="route.isActive"
+        >
+          {{ route.label }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-option>
+      </mat-chip-listbox>
+    </div>
   </div>
 </div>
