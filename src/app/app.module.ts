@@ -9,11 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatChipsModule } from '@angular/material/chips';
 import { HomeComponent } from './components/home/home.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { AboutComponent } from './components/about/about.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Form1Component } from './components/form1/form1.component';
+import { Form2Component } from './components/form2/form2.component';
+import { Form3Component } from './components/form3/form3.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     SidebarComponent,
     HomeComponent,
-    ContactComponent,
-    AboutComponent,
-    DashboardComponent,
+    Form1Component,
+    Form2Component,
+    Form3Component,
   ],
   imports: [
     BrowserModule,
