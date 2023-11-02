@@ -13,6 +13,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSidenavModule,
     MatChipsModule,
     MatIconModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
