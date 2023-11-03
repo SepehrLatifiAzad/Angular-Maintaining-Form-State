@@ -61,7 +61,7 @@ export class RouterService {
     if (index === -1) {
       this.routerHistory.push(currentRoute!);
     } else {
-      this.routerHistory[index].form = data;
+      this.routerHistory[index].formState = data;
     }
   }
 
@@ -85,7 +85,7 @@ export class RouterService {
       (item) => item.path === this.router.url
     );
     if (currentRoute !== -1) {
-      this.routes[currentRoute].form = formData;
+      this.routes[currentRoute].formState = formData;
     }
   }
 
@@ -94,7 +94,7 @@ export class RouterService {
       (item) => item.path === this.router.url
     );
     if (currentRoute) {
-      return currentRoute.form;
+      return currentRoute.formState;
     }
     return {};
   }
