@@ -1,0 +1,7 @@
+Maintaining page 
+
+1) Using Interface and service: adding a formState variable (an object) to the interface and update it whenever the form updated
+
+2) Local storage: a good way to store the page state, probably dangerous for the critical information, but persistance!
+
+3) using NGRX state management: a good choice, but not as persistance as local storage
