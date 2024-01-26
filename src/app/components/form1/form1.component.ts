@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormStateService } from 'src/app/service/form-service/form-state.service';
 import { RouterService } from 'src/app/service/router-service/router.service';
 
 @Component({
@@ -7,30 +8,29 @@ import { RouterService } from 'src/app/service/router-service/router.service';
   templateUrl: './form1.component.html',
   styleUrls: ['./form1.component.scss'],
 })
-export class Form1Component {
-  savedFormData: Object | undefined = this.routerService.getFormData();
-  form1: FormGroup = new FormGroup({
-    firstName: new FormControl(
-      this.savedFormData ? (this.savedFormData as any)['firstName'] : '',
-      [Validators.required, Validators.minLength(3)]
-    ),
-    lastName: new FormControl(
-      this.savedFormData ? (this.savedFormData as any)['lastName'] : '',
-      [Validators.required, Validators.minLength(3)]
-    ),
-    email: new FormControl(
-      this.savedFormData ? (this.savedFormData as any)['email'] : '',
-      [Validators.required, Validators.email]
-    ),
-    password: new FormControl(
-      this.savedFormData ? (this.savedFormData as any)['password'] : '',
-      [Validators.required, Validators.minLength(8)]
-    ),
-  });
+export class Form1Component implements OnInit {
+  signUpForm!: FormGroup;
   hidePassword: boolean = true;
-  constructor(private routerService: RouterService) {}
-  saveForm() {
-    this.routerService.setFormData(this.form1.value);
-    console.log(this.form1.value);
+
+  constructor(private fb: FormBuilder, private formStateService: FormStateService) {}
+  ngOnInit(): void {
+    this.signUpForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+    });
+
+    // Subscribe to the form state service and set the form value when the component loads
+    this.formStateService.currentFormState.subscribe(state => {
+      if (state.page1) {
+        this.signUpForm.setValue(state.page1);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Update the form state when the component is destroyed
+    this.formStateService.updateFormState('page1', this.signUpForm.value);
   }
 }

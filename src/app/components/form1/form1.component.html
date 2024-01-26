@@ -1,7 +1,7 @@
 <div class="container">
   <h3>Register Form</h3>
   <br />
-  <form class="form1" [formGroup]="form1">
+  <form class="form1" [formGroup]="signUpForm">
     <div class="d-flex align-items-center justify-content-center flex-column">
       <div class="d-flex flex-row gap-3">
         <div>
@@ -11,7 +11,6 @@
               matInput
               placeholder="Name"
               formControlName="firstName"
-              (keyup)="saveForm()"
               type="text"
             />
           </mat-form-field>
@@ -24,7 +23,6 @@
               placeholder="Last Name"
               formControlName="lastName"
               type="text"
-              (keyup)="saveForm()"
             />
           </mat-form-field>
         </div>
@@ -37,7 +35,6 @@
             placeholder="example@gmail.com"
             formControlName="email"
             type="email"
-            (keyup)="saveForm()"
           />
         </mat-form-field>
       </div>
