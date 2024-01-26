@@ -1,4 +1,9 @@
-# HistoryManagementSystem
+# Maintaining State of the forms in Angular
+
+The purpose of this project is to store and maintain the state and value of forms in Angular.
+The logic behind this idea is a simple service that holds the state of the form when a page destroyed and recreated. The service is injected into the component and the form is initialized with the state of the service. When the form is destroyed, the state of the form is saved in the service. When the form is recreated, the state of the form is initialized with the state of the service.
+
+please checkout the `form-service` and the form components [`form1`,`form2`,`form3`] to see how it is done. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
 
