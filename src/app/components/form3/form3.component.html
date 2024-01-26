@@ -1,1 +1,25 @@
-<div class="container"></div>
+<div class="container">
+  <h3>Register Form3</h3>
+  <br />
+  <form class="form3" [formGroup]="requestForm">
+    <div class="d-flex align-items-center justify-content-center flex-column">
+      <div class="w-100">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="example@gmail.com"
+            formControlName="email"
+            type="email"
+          />
+        </mat-form-field>
+      </div>
+      <div class="w-100">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>ID</mat-label>
+          <input matInput type="text" formControlName="id" />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

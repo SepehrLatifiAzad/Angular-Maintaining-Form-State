@@ -5,13 +5,18 @@ import { FormStateService } from 'src/app/service/form-service/form-state.servic
 @Component({
   selector: 'app-form2',
   templateUrl: './form2.component.html',
-  styleUrls: ['./form2.component.scss']
+  styleUrls: ['./form2.component.scss'],
 })
 export class Form2Component implements OnInit {
   signUpForm!: FormGroup;
   hidePassword: boolean = true;
 
-  constructor(private fb: FormBuilder, private formStateService: FormStateService) {}
+  // Inject the FormStateService to be able to subscribe to the form state
+  constructor(
+    private fb: FormBuilder,
+    private formStateService: FormStateService
+  ) {}
+
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
@@ -21,9 +26,9 @@ export class Form2Component implements OnInit {
     });
 
     // Subscribe to the form state service and set the form value when the component loads
-    this.formStateService.currentFormState.subscribe(state => {
+    this.formStateService.currentFormState.subscribe((state) => {
       if (state.form2) {
-        this.signUpForm.setValue(state.page2);
+        this.signUpForm.setValue(state.form2);
       }
     });
   }
