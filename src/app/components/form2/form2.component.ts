@@ -15,6 +15,7 @@ export class Form2Component implements OnInit {
     private fb: FormBuilder,
     private formStateService: FormStateService
   ) {}
+
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
