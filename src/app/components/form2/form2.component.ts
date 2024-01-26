@@ -11,6 +11,7 @@ export class Form2Component implements OnInit {
   signUpForm!: FormGroup;
   hidePassword: boolean = true;
 
+  // Inject the FormStateService to be able to subscribe to the form state
   constructor(
     private fb: FormBuilder,
     private formStateService: FormStateService
