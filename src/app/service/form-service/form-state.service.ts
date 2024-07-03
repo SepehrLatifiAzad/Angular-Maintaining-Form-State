@@ -6,9 +6,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FormStateService {
   // Storing forms state
-  private formState = new BehaviorSubject<any>({});
+  private formsState = new BehaviorSubject<any>({});
   // Exposing formState as observable
-  currentFormState = this.formState.asObservable();
+  currentFormsState = this.formsState.asObservable();
 
   /**
    * @description updating form state with new data whenever user navigates to next page
@@ -16,8 +16,8 @@ export class FormStateService {
    * @param formData - form data (form values or state)
    */
   updateFormState(page: string, formData: any) {
-    const currentState = this.formState.value;
+    const currentState = this.formsState.value;
     currentState[page] = formData;
-    this.formState.next(currentState);
+    this.formsState.next(currentState);
   }
 }

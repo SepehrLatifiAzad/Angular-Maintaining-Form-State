@@ -23,7 +23,7 @@ export class Form3Component implements OnInit {
     });
 
     // Subscribe to the form state service and set the form value when the component loads
-    this.formStateService.currentFormState.subscribe((state) => {
+    this.formStateService.currentFormsState.subscribe((state) => {
       if (state.form3) {
         this.requestForm.setValue(state.form3);
       }

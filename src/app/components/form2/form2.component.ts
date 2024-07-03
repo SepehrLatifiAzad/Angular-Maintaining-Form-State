@@ -26,7 +26,7 @@ export class Form2Component implements OnInit {
     });
 
     // Subscribe to the form state service and set the form value when the component loads
-    this.formStateService.currentFormState.subscribe((state) => {
+    this.formStateService.currentFormsState.subscribe((state) => {
       if (state.form2) {
         this.signUpForm.setValue(state.form2);
       }
